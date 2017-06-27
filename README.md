@@ -9,16 +9,17 @@ This plugin was inspired by [Ionic Scroll Sista](https://github.com/djett41/ioni
 npm install --save jquery
 ```
 2. Copy `scroll-hide` folder into your Ionic project (src/components).
-3. Add `ScrollHide` class to the declarations NgModule metadata (`app.module.ts`).
+3. Add `ScrollHide` class to the declarations NgModule metadata.
+#### app.module.ts
 ```typescript
 import { ScrollHide } from './../components/scroll-hide/scroll-hide';
 
 @NgModule({
-	declarations: [
-		MyApp,
-		...
-		ScrollHide,
-	],
+    declarations: [
+        MyApp,
+        ...
+        ScrollHide,
+    ],
     ...
 })
 export class AppModule { }
@@ -51,18 +52,34 @@ The toolbar would be shrinked during scrolling. To enable, add an attribute of `
 
 ## Example
 
+#### home.ts
+```typescript
+import { Component } from '@angular/core';
+import { NavController, ViewController } from 'ionic-angular';
+
+@Component({
+    selector: 'page-home',
+    templateUrl: 'home.html'
+})
+export class HomePage {
+
+    constructor(public navCtrl: NavController, 
+                public viewCtrl: ViewController) {}
+}
+```
+#### home.html
 ```html
 <ion-header>
-	<ion-navbar color="primary">
-		<ion-title>Home</ion-title>
-	</ion-navbar>
-	
-	<ion-toolbar color="primary" scroll-hide-translate>
-		<ion-searchbar></ion-searchbar>
-	</ion-toolbar>
+    <ion-navbar color="primary">
+        <ion-title>Home</ion-title>
+    </ion-navbar>
+    
+    <ion-toolbar color="primary" scroll-hide-translate>
+        <ion-searchbar></ion-searchbar>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content padding [scroll-hide]="viewCtrl">
-	<h2>Welcome to Ionic!</h2>
+    <h2>Welcome to Ionic!</h2>
 </ion-content>
 ```
