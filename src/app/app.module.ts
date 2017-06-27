@@ -13,7 +13,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 
 // Directive
-import { ScrollHide } from './../components/scroll-hide/scroll-hide-v3.1';
+import { ScrollHide } from './../components/scroll-hide/scroll-hide';
 
 
 
