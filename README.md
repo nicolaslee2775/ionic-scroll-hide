@@ -9,7 +9,22 @@ This plugin was inspired by [Ionic Scroll Sista](https://github.com/djett41/ioni
 npm install --save jquery
 ```
 2. Copy `scroll-hide` folder into your Ionic project (src/components).
-3. Add `ScrollHide` class to the declarations NgModule metadata.
+3. When using Ionic 2, remember to uncomment the line 547 and comment the line 545 (inside the `onContentScroll()` of `ScrollHide`).
+```typescript
+export class ScrollHide implements OnInit, OnDestroy {
+	...
+	onContentScroll(event: ScrollEvent, isMoveEnd: boolean) {
+
+		// For Ionic 3
+		//let maxScrollTop = this.content._scrollContent.nativeElement.scrollHeight - (event.contentTop + event.contentHeight + event.contentBottom) - (this.extendBottom ? this.footerHeight : 0);
+		// For Ionic 2
+		let maxScrollTop = this.content._scrollEle.scrollHeight - (event.contentTop + event.contentHeight + event.contentBottom) - (this.extendBottom ? this.footerHeight : 0); // For ionic2
+		...
+	}
+	...
+}
+```
+4. Add `ScrollHide` class to the declarations NgModule metadata.
 #### app.module.ts
 ```typescript
 import { ScrollHide } from './../components/scroll-hide/scroll-hide';
