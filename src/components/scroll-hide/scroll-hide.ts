@@ -541,8 +541,11 @@ export class ScrollHide implements OnInit, OnDestroy {
 
 	onContentScroll(event: ScrollEvent, isMoveEnd: boolean) {
 
+		// For Ionic 3
 		let maxScrollTop = this.content._scrollContent.nativeElement.scrollHeight - (event.contentTop + event.contentHeight + event.contentBottom) - (this.extendBottom ? this.footerHeight : 0);
-		
+		// For Ionic 2
+		//let maxScrollTop = this.content._scrollEle.scrollHeight - (event.contentTop + event.contentHeight + event.contentBottom) - (this.extendBottom ? this.footerHeight : 0); // For ionic2
+
 
 		var duration = 0;
 		let scrollTopDiff = event.scrollTop - this.scrollTopPrev;
